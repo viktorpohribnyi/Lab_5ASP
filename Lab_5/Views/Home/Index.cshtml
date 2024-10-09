@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Cookies Form</h2>
+<form asp-controller="Home" asp-action="SetCookie" method="post">
+    <div>
+        <label for="value">Value:</label>
+        <input type="text" id="value" name="value" required />
+    </div>
+    <div>
+        <label for="expiration">Expiration Date and Time:</label>
+        <input type="datetime-local" id="expiration" name="expiration" required />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/Home/CheckCookies">Check Cookies</a>
+
+@if (ViewBag.CookieStatus != null)
+{
+    <p>@ViewBag.CookieStatus</p>
+}
